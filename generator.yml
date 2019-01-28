@@ -1,8 +1,11 @@
 modules:
-  edgemax:
+  edgerouter:
+    auth:
+      community: public
     walk:
     - memTotalReal
     - memAvailReal
+    - ssCpuRawIdle
     # host resource metrics
     - hrSystemUptime
     - hrSystemProcesses
