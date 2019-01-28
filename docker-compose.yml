@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  prometheus:
+    image: prom/prometheus
+    command:
+    - --config.file=/prometheus.yml
+    - --web.external-url=http://prometheus.l102.local
+    volumes:
+    - "./prometheus.yml:/prometheus.yml"
+    ports:
+    - 9090:9090
+
+  snmp-exporter:
+    image: prom/snmp-exporter
+    command:
+    - --config.file=/snmp.yml
+    volumes:
+    - "./snmp.yml:/snmp.yml:ro"
+    ports:
+    - 9116:9116
+

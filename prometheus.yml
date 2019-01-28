@@ -1,0 +1,22 @@
+global:
+  evaluation_interval: 30s
+  scrape_interval: 30s
+  scrape_timeout: 10s
+
+scrape_configs:
+- job_name: edgerouter
+  static_configs:
+  - targets:
+    - 192.168.1.1
+  metrics_path: /snmp
+  params:
+    module:
+    - edgerouter
+  relabel_configs:
+  - source_labels: [__address__]
+    target_label: __param_target
+  - source_labels: [__param_target]
+    target_label: instance
+  - target_label: __address__
+    replacement: snmp-exporter:9116
+

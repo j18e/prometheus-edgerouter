@@ -1,0 +1,32 @@
+modules:
+  edgemax:
+    walk:
+    - memTotalReal
+    - memAvailReal
+    # host resource metrics
+    - hrSystemUptime
+    - hrSystemProcesses
+    - hrSystemMaxProcesses
+    - hrMemorySize
+    - hrStorageSize
+    - hrStorageUsed
+    - hrProcessorLoad # non idle percent past minute
+    # interface metrics
+    - ifAdminStatus # 1=up,2=down,3=testing
+    - ifOperStatus # 1=up,2=down,3=testing,4=unknown,5=dormant,6=notPresent,7=lowerLayerDown
+    - ifLastChange
+    - ifInDiscards
+    - ifInErrors
+    - ifOutDiscards
+    - ifOutErrors
+    - ifHCInOctets
+    - ifHCOutOctets
+    # tcp metrics
+    - tcpMaxConn
+    - tcpActiveOpens
+    - tcpPassiveOpens
+    - tcpEstabResets
+    - tcpCurrEstab
+    lookups:
+    - old_index: ifIndex
+      new_index: ifName
