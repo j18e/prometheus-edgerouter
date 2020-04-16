@@ -31,5 +31,5 @@ modules:
     - tcpEstabResets
     - tcpCurrEstab
     lookups:
-    - old_index: ifIndex
-      new_index: ifName
+    - source_indexes: ifIndex
+      lookup: ifName
