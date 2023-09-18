@@ -1,7 +1,9 @@
+auths:
+  public_v2:
+    community: public
+    version: 2
 modules:
   edgerouter:
-    auth:
-      community: public
     walk:
     - memTotalReal
     - memAvailReal
@@ -31,5 +33,5 @@ modules:
     - tcpEstabResets
     - tcpCurrEstab
     lookups:
-    - old_index: ifIndex
-      new_index: ifName
+    - source_indexes: [ifIndex]
+      lookup: ifName
